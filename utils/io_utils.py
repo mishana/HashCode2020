@@ -16,7 +16,8 @@ def read_in(filename):
 def write_out(solution: OutData, filename):
     with open(filename, 'w') as f:
         f.write(f'{solution.K}\n')
-
+    with open(filename, 'ab') as f:
+        np.savetxt(f, solution.pizza_types.astype(int), fmt='%i')
         pass
 
 

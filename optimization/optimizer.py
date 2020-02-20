@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import NamedTuple, Iterable
+from typing import NamedTuple, Iterable, List
 
 import numpy as np
 
@@ -12,7 +12,7 @@ class InData(NamedTuple):
 
 class OutData(NamedTuple):
     K: int
-    pizza_types: Iterable[int]
+    pizza_types: np.ndarray
 
 
 class Optimizer(ABC):
