@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import NamedTuple
+from typing import NamedTuple, Iterable
 
 import numpy as np
 
@@ -12,7 +12,7 @@ class InData(NamedTuple):
 
 class OutData(NamedTuple):
     K: int
-    pizza_types: np.ndarray
+    pizza_types: Iterable[int]
 
 
 class Optimizer(ABC):
@@ -23,5 +23,5 @@ class Optimizer(ABC):
     Note: inheriting classes might also have some hyper-parameters set in the c'tor, for example.
     """
     @abstractmethod
-    def solve(self, in_data):
+    def solve(self, in_data: InData) -> OutData:
         pass
