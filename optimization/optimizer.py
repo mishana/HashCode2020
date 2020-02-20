@@ -1,4 +1,15 @@
 from abc import ABC, abstractmethod
+from typing import NamedTuple
+
+
+class InData(NamedTuple):
+    # TODO
+    pass
+
+
+class OutData(NamedTuple):
+    # TODO
+    pass
 
 
 class Optimizer(ABC):
