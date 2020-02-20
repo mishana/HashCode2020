@@ -1,4 +1,18 @@
 from abc import ABC, abstractmethod
+from typing import NamedTuple
+
+import numpy as np
+
+
+class InData(NamedTuple):
+    M: int
+    N: int
+    slices_per_type: np.ndarray
+
+
+class OutData(NamedTuple):
+    K: int
+    pizza_types: np.ndarray
 
 
 class Optimizer(ABC):
