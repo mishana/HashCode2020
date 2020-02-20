@@ -20,5 +20,5 @@ class Optimizer(ABC):
     Note: inheriting classes might also have some hyper-parameters set in the c'tor, for example.
     """
     @abstractmethod
-    def solve(self, in_data):
+    def solve(self, in_data: InData) -> OutData:
         pass
