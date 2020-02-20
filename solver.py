@@ -10,7 +10,8 @@ OUT_SUFFIX = '.out'
 
 
 if __name__ == '__main__':
-    filename = 'b_read_on'  # TODO: this is just an example
+    in_files = ['b_read_on', 'c_incunabula', 'd_tough_choices', 'e_so_many_books', 'f_libraries_of_the_world']
+    filename = in_files[4]  # TODO: this is just an example
     opt = NaiveOptimizer()  # TODO: this is just an example
 
     in_data = read_in(IN_DATA_FOLDER + filename + IN_SUFFIX)
