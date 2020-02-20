@@ -1,0 +1,6 @@
+def calc_score(solution) -> float:
+    # TODO:
+    pass
+
+
+# MORE FUNCTIONS THAT ARE COMMON FOR DIFFERENT OPTIMIZERS ARE GOING TO BE PLACED HERE
