@@ -8,14 +8,14 @@ def read_in(filename) -> InData:
         B, L, D = np.array(first_line.split()).astype(int)
         scores_lines = f.readline()
         scores = np.array(scores_lines.split()).astype(int)
-        Libraries = []
+        Libraries = np.empty(L, dtype=object)
 
         for i in range(L):
             first_line = f.readline()
             second_line = f.readline()
             N, T, M = np.array(first_line.split()).astype(int)
             books = np.array(second_line.split()).astype(int)
-            Libraries.append(LibraryIn(N=N, T=T, M=M, Books=books))
+            Libraries[i] = LibraryIn(N=N, T=T, M=M, Books=books)
 
     return InData(B=B, L=L, D=D, Scores=scores, Libraries=Libraries)
 
@@ -27,7 +27,7 @@ def write_out(solution: OutData, filename):
         with open(filename, 'a') as f:
             f.write(f'{lib.Y} {lib.K}\n')
         with open(filename, 'ab') as f:
-            np.savetxt(f, lib.Books.astype(int), fmt='%i')
+            np.savetxt(f, lib.Books.astype(int).reshape(1, -1), fmt='%i')
 
 
 if __name__ == '__main__':

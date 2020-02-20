@@ -15,7 +15,7 @@ class InData(NamedTuple):
     L: int
     D: int
     Scores: np.ndarray
-    Libraries: List[LibraryIn]
+    Libraries: np.ndarray
 
 
 class LibraryOut(NamedTuple):
@@ -26,7 +26,7 @@ class LibraryOut(NamedTuple):
 
 class OutData(NamedTuple):
     A: int
-    Libraries: List[LibraryOut]
+    Libraries: np.ndarray
 
 
 class Optimizer(ABC):

@@ -15,7 +15,8 @@ if __name__ == '__main__':
 
     in_data = read_in(IN_DATA_FOLDER + filename + IN_SUFFIX)
     solution = opt.solve(in_data)
-    score = calc_score(solution)
+    score = calc_score(solution, in_data)
+    print(score)
     write_out(solution, OUT_DATA_FOLDER + filename + OUT_SUFFIX)
 
     pass
