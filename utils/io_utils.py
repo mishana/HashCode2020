@@ -31,4 +31,5 @@ def write_out(solution: OutData, filename):
 
 
 if __name__ == '__main__':
+    indata = read_in()
     pass
