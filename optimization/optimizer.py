@@ -2,13 +2,7 @@ from abc import ABC, abstractmethod
 from typing import NamedTuple, List
 import numpy as np
 
-class InData(NamedTuple):
-    B: int
-    L: int
-    D: int
-    Scores: np.ndarray
-    Libraries: List[LibraryIn]
-    
+
 class LibraryIn(NamedTuple):
     N: int
     T: int
@@ -16,14 +10,23 @@ class LibraryIn(NamedTuple):
     Books: np.ndarray
 
 
-class OutData(NamedTuple):
-    A: int
-    Libraries: List[LibraryOut]
-    
+class InData(NamedTuple):
+    B: int
+    L: int
+    D: int
+    Scores: np.ndarray
+    Libraries: List[LibraryIn]
+
+
 class LibraryOut(NamedTuple):
     Y: int
     K: int
     Books: np.ndarray
+
+
+class OutData(NamedTuple):
+    A: int
+    Libraries: List[LibraryOut]
 
 
 class Optimizer(ABC):
