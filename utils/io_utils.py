@@ -1,17 +1,32 @@
-from optimization.optimizer import OutData, InData
-
+from optimization.optimizer import OutData, InData, LibraryIn, LibraryOut
+import numpy as np
 
 def read_in(filename) -> InData:
     with open(filename, 'r') as f:
-        for line in f:
-            # TODO:
-            pass
+        first_line = f.readline()
+        B, L, D = np.array(first_line.split()).astype(int)
+        scores_lines = f.readline()
+        scores = np.array(scores_lines.split()).astype(int)
+        Libraries = []
+        for i in range(L):
+            first_line = f.readline()
+            second_line = f.readline()
+            N, T, M = np.array(first_line.split()).astype(int)
+            books = np.array(second_line.split()).astype(int)
+            Libraries.append(N=N,T=T,M=M, Books=books)
+        
+            
 
 
 def write_out(solution: OutData, filename):
     with open(filename, 'w') as f:
-        # TODO:
-        pass
+        f.write(f'{solution.A}\n')
+    for lib in solution.Libraries:
+        with open(filename, 'a') as f:
+            f.write(f'{lib.Y} {lib.K}\n')
+        with open(filename, 'ab') as f:
+            np.savetxt(f, lib.Books.astype(int), fmt='%i')
+
 
 
 if __name__ == '__main__':

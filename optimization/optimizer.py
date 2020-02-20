@@ -1,15 +1,29 @@
 from abc import ABC, abstractmethod
-from typing import NamedTuple
-
+from typing import NamedTuple, List
+import numpy as np
 
 class InData(NamedTuple):
-    # TODO
-    pass
+    B: int
+    L: int
+    D: int
+    Scores: np.ndarray
+    Libraries: List[LibraryIn]
+    
+class LibraryIn(NamedTuple):
+    N: int
+    T: int
+    M: int
+    Books: np.ndarray
 
 
 class OutData(NamedTuple):
-    # TODO
-    pass
+    A: int
+    Libraries: List[LibraryOut]
+    
+class LibraryOut(NamedTuple):
+    Y: int
+    K: int
+    Books: np.ndarray
 
 
 class Optimizer(ABC):
